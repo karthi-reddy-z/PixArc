@@ -2,6 +2,8 @@
 
 **PixArc** is a modern web-based tool for creating stunning circular pie-slice layouts from your images. It automatically extracts vibrant color palettes from your uploads and arranges them into a beautiful, dynamic composition.
 
+[**Live Demo**](https://karthi-reddy-z.github.io/PixArc/)
+
 ![PixArc Logo](/vite.svg)
 
 ## ✨ Features
