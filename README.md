@@ -4,7 +4,6 @@
 
 [**Live Demo (Vercel)**](https://pix-arc.vercel.app/)
 
-![PixArc Logo](/vite.svg)
 
 ## ✨ Features
 
