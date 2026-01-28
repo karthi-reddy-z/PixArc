@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circle Composer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div id="app">
+    <header class="glass-header">
+      <div class="logo">
+        <h1>Circle Composer</h1>
+      </div>
+      <div class="actions">
+        <select id="layout-mode" class="btn secondary">
+          <option value="free">Free Canvas</option>
+          <option value="pc">PC Layout</option>
+          <option value="phone">Phone Layout</option>
+        </select>
+        <button id="add-images-btn" class="btn secondary" style="display: none;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          Add Images
+        </button>
+        <button id="export-btn" class="btn primary" style="display: none;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Export PNG
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div id="uploader-overlay" class="uploader-overlay">
+        <div class="uploader-content glass-panel">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+            stroke-linecap="round" stroke-linejoin="round" class="upload-icon">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <h2>Drag & Drop Images</h2>
+          <p>or click to browse</p>
+          <input type="file" id="file-input" multiple accept="image/*" hidden>
+        </div>
+      </div>
+
+      <div id="canvas-container" class="canvas-wrapper">
+        <canvas id="main-canvas"></canvas>
+        <!-- Controls could go here -->
+      </div>
+    </main>
+
+    <!-- Export Modal -->
+    <div id="export-modal" class="modal-overlay hidden">
+      <div class="modal-content glass-panel">
+        <h2>Export Options</h2>
+
+        <div class="form-group">
+          <label>Resolution</label>
+          <select id="modal-resolution">
+            <option value="screen">Screen Size (Default)</option>
+            <option value="1920x1080">1080p (HD)</option>
+            <option value="2560x1440">2K (QHD)</option>
+            <option value="3840x2160">4K (UHD)</option>
+            <option value="pc-lock">PC Lock Screen (1920x1080)</option>
+            <option value="phone-lock">Phone Lock Screen (1080x1920)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Format & Quality</label>
+          <select id="modal-format">
+            <option value="png">PNG (Lossless)</option>
+            <option value="jpeg-high">JPEG (High Quality)</option>
+            <option value="jpeg-mid">JPEG (Medium Quality)</option>
+          </select>
+        </div>
+
+        <div class="modal-actions">
+          <button id="modal-cancel" class="btn secondary">Cancel</button>
+          <button id="modal-download" class="btn primary">Download</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden elements for processing -->
+    <div id="processing-stage" style="display: none;"></div>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
